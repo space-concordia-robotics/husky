@@ -7,7 +7,7 @@
                h_fov:=1.5184351666666667 v_fov:=1.0122901111111111
                min_range:=0.105          max_range:=8.0
                width:=640                height:=480
-               update_rate:=30
+               update_rate:=20
                robot_namespace:=/">
 
       <!-- this link is the origin for the camera's data -->
