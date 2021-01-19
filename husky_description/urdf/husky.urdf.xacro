@@ -40,6 +40,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:arg name="robot_namespace" default="/" />
   <xacro:arg name="urdf_extras" default="$(find husky_description)/urdf/accessories/zed2_setup.urdf.xacro" />
 
+  <!-- OS1 Lidar !-->
+  <xacro:arg name="urdf_extras_lidar" default="$(find ouster_description)/urdf/OS1-64.urdf.xacro" />
+
   <!-- Included URDF/XACRO Files -->
   <xacro:include filename="$(find husky_description)/urdf/decorations.urdf.xacro" />
   <xacro:include filename="$(find husky_description)/urdf/wheel.urdf.xacro" />
@@ -214,5 +217,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <!-- Optional custom includes. -->
   <xacro:include filename="$(arg urdf_extras)" />
+  <xacro:include filename="$(arg urdf_extras_lidar)" />
+  <OS1-64 parent="base_link" name="os1_sensor" hz="10" samples="220">
+    <origin xyz="0 0 0.5" rpy="0 0 0" />
+  </OS1-64>
 
 </robot>
