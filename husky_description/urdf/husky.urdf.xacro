@@ -121,6 +121,30 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <gazebo reference="imu_link">
   </gazebo>
 
+  <link name="bowler_link">
+    <visual>
+      <geometry>
+        <mesh filename="$(find husky_description)/meshes/red_bowler.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.07" rpy="0 0 0" />
+      <geometry>
+        <box size="0.32 0.25 0.14" rpy="0 0 0"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="30"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
+  </link>
+
+  <joint name="bowler_joint" type="fixed">
+    <parent link="top_plate_link" />
+    <child link="bowler_link" />
+    <origin xyz="0.02 0.2 0" rpy="0 0 0.5" />
+  </joint>
+
   <!-- Husky wheel macros -->
   <xacro:husky_wheel wheel_prefix="front_left">
     <origin xyz="${wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
